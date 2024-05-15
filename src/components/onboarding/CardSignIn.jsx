@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { logo } from "../../assets";
 import SubmitBtn from "../buttons/SubmitBtn";
 import WhiteBtn from "../buttons/WhiteBtn";
@@ -32,7 +33,7 @@ function CardSignIn({ h1, p }) {
           <p className="font-normal">
             Don&apos;t have an account?
             <span className="text-primary font-bold pl-2">
-              <a href="/signup">Sign up</a>
+              <Link to="/signup">Sign up</Link>
             </span>
           </p>
         </div>

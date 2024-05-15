@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { logo } from "../../assets";
 import SubmitBtn from "../buttons/SubmitBtn";
 import WhiteBtn from "../buttons/WhiteBtn";
@@ -45,7 +46,7 @@ function Card({ h1, p }) {
           <p className="font-normal">
             Already have an account?{" "}
             <span className="text-primary font-bold pl-2">
-              <a href="/signin">Log in</a>
+              <Link to="/signin">Log in</Link>
             </span>
           </p>
         </div>
