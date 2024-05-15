@@ -14,7 +14,7 @@ const Hero = ({ heroImg, h1, p }) => {
           <p className="pb-6 text-secondary ">{p}</p>
         </div>
         <div className="hidden lgss:flex">
-          <Link to={"/"}>
+          <Link to={"/signin"}>
             <button className="text-white rounded-xl bg-primary  p-3 shadow-sm flex justify-center items-center gap-2">
               <AiOutlineUser />
               Sign in
@@ -26,9 +26,7 @@ const Hero = ({ heroImg, h1, p }) => {
           </button>
         </div>
         <div className="lgss:hidden flex flex-col gap-4 w-full">
-          <Link
-            className="text-white rounded-xl bg-primary flex justify-center items-center p-3 shadow-sm"
-            to={"/"}
+          <Link to={"/signin"} className="text-white rounded-xl bg-primary flex justify-center items-center p-3 shadow-sm"
           >
             <button className="flex justify-center items-center gap-3">
               <AiOutlineUser />
