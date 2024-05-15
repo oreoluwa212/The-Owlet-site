@@ -6,9 +6,10 @@ import { RxVideo } from "react-icons/rx";
 
 const Hero = () => {
   return (
-    <div className="flex flex-col lgss:flex-row pt-16 ">
-      <div className="w-1/2 pt-10">
-        <h1 className=" text-[4rem] md:text-6xl my-6 font-bold">
+    <div className="flex flex-col w-full lgss:flex-row justify-center items-center pt-9 pb-16">
+      <div className="lgss:w-1/2">
+        <div className="lgss:w-[80%] w-full flex flex-col gap-8">
+                  <h1 className="leading-[60px] text-secondary text-[3.5rem] font-bold">
           Elevate your social media presence
         </h1>
         <p className="mb-12 text-secondary ">
@@ -17,6 +18,7 @@ const Hero = () => {
           solutions tailored for resellers and business owners, ensuring lasting
           connections and top-notch support.
         </p>
+        </div>
         <div className="flex">
           <Link to={"/"}>
             <button className="text-white rounded-xl bg-primary  p-3 shadow-sm flex justify-center items-center gap-2">
@@ -30,8 +32,8 @@ const Hero = () => {
           </button>
         </div>
       </div>
-      <div className="h-[80vh]">
-        <img className="h-full w-[550px]" src={heroImg} alt="people" />
+      <div className="lgss:w-1/2 pt-10">
+        <img className="w-full" src={heroImg} alt="people" />
       </div>
     </div>
   );
