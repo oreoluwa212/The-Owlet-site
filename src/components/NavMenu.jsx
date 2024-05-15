@@ -8,12 +8,12 @@ const NavMenu = () => {
 
   return (
     <div>
-      <div className="lgss:flex lgss:flex-row hidden justify-between items-center px-[10%] relative top-7 font-semibold">
+      <div className="lgss:flex lgss:flex-row hidden justify-between items-center px-[5%] relative top-7 font-semibold">
         <div className="flex justify-center items-center">
           <img src={logo} alt="" className="" />
         </div>
         {/* ++++++++ */}
-        <ul className="lgss:flex gap-5 justify-between w-[45%] font-semibold text-[16px] text-secondary">
+        <ul className="lgss:flex gap-7 justify-between w-[50%] font-semibold text-[16px] text-secondary">
           <li>Services</li>
           <li>Blog</li>
           <li>API</li>
@@ -21,11 +21,11 @@ const NavMenu = () => {
           <li>Buy Youtube Followers</li>
         </ul>
         <div className="flex justify-between items-center gap-4">
-          <button className="bg-transparent rounded-xl py-4 px-6 shadow-md text-secondary border">
+          <button className="bg-transparent rounded-xl py-3 px-6 shadow-md text-secondary border">
             Sign in
           </button>
           <Link to={"/"}>
-            <button className="bg-primary rounded-xl py-4 px-4 shadow-md text-white">
+            <button className="bg-primary rounded-xl py-3 px-4 shadow-md text-white">
               Sign up and get N300
             </button>
           </Link>
