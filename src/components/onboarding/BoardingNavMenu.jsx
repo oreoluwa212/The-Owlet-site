@@ -1,14 +1,15 @@
-import React, { useState } from 'react'
-import { Link } from "react-router-dom";
-import { logo } from '../assets';
+import React, { useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { logo } from "../../assets";
 import { FaBars, FaTimes } from "react-icons/fa";
+import BoadingNavButton from "../buttons/BoadingNavButton";
 
-const NavMenu = () => {
+function BoardingNavMenu() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div>
-      <div className="lgss:flex lgss:flex-row hidden justify-between items-center relative top-7 font-semibold">
+    <div className="bg-white shadow-sm px-[5%] py-3">
+      <div className="lgss:flex lgss:flex-row hidden justify-between items-center relative font-semibold">
         <div className="flex justify-center items-center">
           <Link to={"/"}>
             <img src={logo} alt="" className="" />
@@ -27,21 +28,14 @@ const NavMenu = () => {
         </ul>
         <div className="flex justify-between items-center gap-4">
           <Link to={"/signin"}>
-          <button className="bg-white rounded-xl py-3 px-6 shadow-md text-secondary border">
-            Sign in
-          </button>
-          </Link>
-          <Link to={"/signup"}>
-            <button className="bg-primary rounded-xl py-3 px-4 shadow-md text-white">
-              Sign up and get N300
-            </button>
+            <BoadingNavButton buttonText="Sign In" />
           </Link>
         </div>
       </div>
       <div className="flex w-full justify-between items-center py-5 px-[5%] lgss:hidden">
         <div className="flex justify-center items-center">
           <Link to={"/"}>
-          <img src={logo} alt="logo" className="" />
+            <img src={logo} alt="logo" className="" />
           </Link>
         </div>
         {isOpen ? (
@@ -76,13 +70,8 @@ const NavMenu = () => {
               </Link>
             </ul>
             <div className="flex flex-col-reverse justify-center items-center gap-10">
-              <button className="bg-white rounded-xl py-4 px-6 shadow-md text-secondary">
-                Sign in
-              </button>
-              <Link to={"/"}>
-                <button className="bg-primary rounded-xl py-4 px-3 shadow-md text-white">
-                  Sign up and get N300
-                </button>
+              <Link to={"/signin"}>
+                <BoadingNavButton buttonText="Sign in" />
               </Link>
             </div>
           </div>
@@ -92,4 +81,4 @@ const NavMenu = () => {
   );
 }
 
-export default NavMenu
+export default BoardingNavMenu;
