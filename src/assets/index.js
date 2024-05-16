@@ -10,6 +10,11 @@ import youHero from "../assets/images/youHero.png";
 import tiktok from "../assets/images/tiktok.png";
 import x from "../assets/images/x_logo.svg.png";
 import google from "../assets/images/google.png";
+import supportImg from "../assets/images/supportImg.png";
+import Avatar1 from "../assets/images/Avatar1.png";
+import Avatar2 from "../assets/images/Avatar2.png";
+import Avatar3 from "../assets/images/Avatar3.png";
+import Avatar4 from "../assets/images/Avatar4.png";
 
 export {
   logo,
@@ -24,4 +29,9 @@ export {
   instaHero,
   youHero,
   google,
+  supportImg,
+  Avatar1,
+  Avatar2,
+  Avatar3,
+  Avatar4,
 };
