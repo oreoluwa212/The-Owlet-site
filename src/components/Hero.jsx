@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AiOutlineUser } from "react-icons/ai";
 import { RxVideo } from "react-icons/rx";
-import { Avatar1, Avatar2, Avatar3, Avatar4, supportImg } from "../assets";
+import { Avatar1, Avatar2, Avatar3, Avatar4, AvatarPlus, supportImg } from "../assets";
 import { FaPlus } from "react-icons/fa";
 
 const Hero = ({ heroImg, h1, p }) => {
@@ -52,7 +52,7 @@ const Hero = ({ heroImg, h1, p }) => {
       <div className="lgss:w-[50%] p-10 flex justify-center relative w-full">
         {location.pathname === "/" && (
           <div className="bg-white shadow-lg w-[260px] h-16 absolute bottom-[45%] -z-1 lgss:right-[45%] hidden rounded-[16px] px-4 lgss:flex justify-between items-center">
-            <div className="flex w-[55%]">
+            <div className="flex justify-center items-center w-[55%]">
               <div style={{ display: "block", width: "100%" }}>
                 <img src={Avatar1} alt="" style={{ width: "100%" }} />
               </div>
@@ -65,11 +65,8 @@ const Hero = ({ heroImg, h1, p }) => {
               <div style={{ display: "block", width: "100%" }}>
                 <img src={Avatar4} alt="" style={{ width: "100%" }} />
               </div>
-              <div
-                style={{ display: "block", width: "100%" }}
-                className="bg-[#FEF3F2] rounded-full text-primary pl-3 pt-2"
-              >
-                <FaPlus />
+              <div style={{ display: "block", width: "100%" }}>
+                <img src={AvatarPlus} alt="" style={{ width: "100%" }} />
               </div>
             </div>
             <div className="flex flex-col text-[#344054] w-[45%]">

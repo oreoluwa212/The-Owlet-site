@@ -6,7 +6,7 @@ import FormInput from "../input/FormInput";
 
 function Card({ h1, p }) {
   return (
-    <div className="bg-white border w-[90%] md:w-[50%] lgss:w-[30%] rounded-[12px] flex flex-col justify-center items-center  px-8 py-5">
+    <div className="lgss:bg-white lgss:border w-[90%] md:w-[50%] lgss:w-[35%] rounded-[12px] flex flex-col justify-center items-center px-8 py-5">
       <img src={logo} alt="" />
       <h1 className="font-semibold text-[1.2rem]">{h1}</h1>
       <p className="text-[1rem]">{p}</p>

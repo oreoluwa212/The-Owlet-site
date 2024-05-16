@@ -15,6 +15,7 @@ import Avatar1 from "../assets/images/Avatar1.png";
 import Avatar2 from "../assets/images/Avatar2.png";
 import Avatar3 from "../assets/images/Avatar3.png";
 import Avatar4 from "../assets/images/Avatar4.png";
+import AvatarPlus from "../assets/images/AvatarPlus.png";
 
 export {
   logo,
@@ -34,4 +35,5 @@ export {
   Avatar2,
   Avatar3,
   Avatar4,
+  AvatarPlus,
 };

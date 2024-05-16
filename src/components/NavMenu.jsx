@@ -76,10 +76,12 @@ const NavMenu = () => {
               </Link>
             </ul>
             <div className="flex flex-col-reverse justify-center items-center gap-10">
+          <Link to={"/signin"}>
               <button className="bg-white rounded-xl py-4 px-6 shadow-md text-secondary">
                 Sign in
               </button>
-              <Link to={"/"}>
+              </Link>
+              <Link to={"/signup"}>
                 <button className="bg-primary rounded-xl py-4 px-3 shadow-md text-white">
                   Sign up and get N300
                 </button>

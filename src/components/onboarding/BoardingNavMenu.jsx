@@ -15,7 +15,7 @@ function BoardingNavMenu() {
             <img src={logo} alt="" className="" />
           </Link>
         </div>
-        <ul className="lgss:flex gap-7 justify-between w-[50%] font-semibold text-[16px] text-secondary">
+        <ul className="lgss:flex gap-7 justify-between lgss:w-[50%] w-[70%] font-semibold text-[16px] text-secondary">
           <li>Services</li>
           <li>Blog</li>
           <li>API</li>
