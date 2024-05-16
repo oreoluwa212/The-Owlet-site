@@ -6,7 +6,7 @@ import FormInput from "../input/FormInput";
 
 function Card({ h1, p }) {
   return (
-    <div className="bg-white border w-[90%] lgss:w-[30%] rounded-[12px] flex flex-col justify-center items-center  px-10 py-5">
+    <div className="bg-white border w-[90%] md:w-[50%] lgss:w-[30%] rounded-[12px] flex flex-col justify-center items-center  px-8 py-5">
       <img src={logo} alt="" />
       <h1 className="font-semibold text-[1.2rem]">{h1}</h1>
       <p className="text-[1rem]">{p}</p>
@@ -34,17 +34,17 @@ function Card({ h1, p }) {
         id={"email"}
         placeholder={"Create a password"}
       />
-      <div className="w-full flex justify-start items-start mb-2">
-        <p className="text-left text-secondary pt-1">
+      <div className="w-full flex justify-start items-start m-1">
+        <p className="text-left text-secondary">
           Must be at least 8 characters
         </p>
       </div>
       <div className="w-full font-semibold">
         <SubmitBtn buttonText={"Get Started"} />
         <WhiteBtn buttonText={"Sign up with Google"} />
-        <div className="pt-5 flex justify-center items-center">
+        <div className="pt-3 flex justify-center items-center">
           <p className="font-normal">
-            Already have an account?{" "}
+            Already have an account?
             <span className="text-primary font-bold pl-2">
               <Link to="/signin">Log in</Link>
             </span>
@@ -55,4 +55,4 @@ function Card({ h1, p }) {
   );
 }
 
-export default Card
+export default Card;
