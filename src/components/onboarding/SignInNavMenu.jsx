@@ -12,7 +12,7 @@ function SignInNavMenu() {
       <div className="lgss:flex lgss:flex-row hidden justify-between items-center relative font-semibold">
         <div className="flex justify-center items-center">
           <Link to={"/"}>
-            <img src={logo} alt="" className="" />
+            <img src={logo} alt="" className="h-8" />
           </Link>
         </div>
         <ul className="lgss:flex gap-7 justify-between w-[50%] font-semibold text-[16px] text-secondary">

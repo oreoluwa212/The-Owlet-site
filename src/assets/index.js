@@ -19,6 +19,7 @@ import AvatarPlus from "../assets/images/AvatarPlus.png";
 import img1 from "../assets/images/img1.png";
 import img2 from "../assets/images/img2.png";
 import img3 from "../assets/images/img3.png";
+import HeroBlog from "../assets/images/blogHero.png";
 
 export {
   logo,
@@ -42,4 +43,5 @@ export {
   img1,
   img2,
   img3,
+  HeroBlog,
 };
