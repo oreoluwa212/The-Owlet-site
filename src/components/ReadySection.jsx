@@ -25,7 +25,7 @@ function ReadySection() {
               />
             </Link>
             <Link to={"/signup"}>
-              <button className="text-white rounded-xl bg-primary  p-3 shadow-sm flex justify-center items-center gap-2">
+              <button className="text-white rounded-xl bg-primary w-full p-3 shadow-sm flex justify-center items-center gap-2">
                 <AiOutlineUser />
                 Get Started
               </button>
@@ -38,8 +38,8 @@ function ReadySection() {
           <img src={iphone1} className="absolute z-100 -left-5 -top-5" alt="" />
           <img src={iphone2} className=" z-1" alt="" />
         </div>
-        <div className="w-full lgss:hidden flex justify-center items-center">
-          <img src={screen} alt="" />
+        <div className="lgss:hidden flex justify-center items-center">
+          <img className="" src={screen} alt="" />
         </div>
       </div>
     </div>

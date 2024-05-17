@@ -28,7 +28,7 @@ const Hero = ({ heroImg, h1, p }) => {
             Watch video
           </button>
         </div>
-        <div className="lgss:hidden flex flex-col gap-4 w-full">
+        <div className="lgss:hidden flex flex-col mb-10 pb-10 gap-4 w-full">
           <Link
             to={"/signin"}
             className="text-white rounded-xl bg-primary flex justify-center items-center p-3 shadow-sm"
@@ -51,7 +51,7 @@ const Hero = ({ heroImg, h1, p }) => {
       </div>
       <div className="lgss:w-[50%] p-10 flex justify-center relative w-full">
         {location.pathname === "/" && (
-          <div className="bg-white shadow-lg w-[260px] h-16 absolute bottom-[45%] -z-1 lgss:right-[45%] hidden rounded-[16px] px-4 lgss:flex justify-between items-center">
+          <div className="bg-white shadow-lg w-[260px] h-16 absolute bottom-[40%] -z-1 lgss:right-[45%] hidden rounded-[16px] px-4 lgss:flex justify-between items-center">
             <div className="flex justify-center items-center w-[55%]">
               <div style={{ display: "block", width: "100%" }}>
                 <img src={Avatar1} alt="" style={{ width: "100%" }} />
@@ -75,7 +75,7 @@ const Hero = ({ heroImg, h1, p }) => {
             </div>
           </div>
         )}
-        <img className="lgss:h-[68vh] z-10" src={heroImg} alt="people" />
+        <img className="lgss:h-[68vh] z-10 pt-10" src={heroImg} alt="people" />
         {location.pathname === "/" && (
           <div className="bg-white shadow-lg w-[200px] h-16 absolute bottom-[25%] z-20 lgss:right-10 -right-5 rounded-[16px] px-4 flex justify-between items-center">
             <img

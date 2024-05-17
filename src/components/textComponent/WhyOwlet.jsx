@@ -22,11 +22,13 @@ function WhyOwlet({ h3 }) {
   const isHome = location.pathname === "/";
   const isYoutube = location.pathname === "/youtube";
   return (
-    <div className="pt-16 pb-5 px-5 lgss:w-[90%] w-full flex flex-col justify-center lgss:items-center">
-      <h3 className="text-primary font-semibold uppercase">{h3}</h3>
+    <div className="pt-16 pb-5 lgss:w-[90%] w-full flex flex-col justify-center lgss:items-center">
       {isInstagram || isHome ? (
         <>
+        <div className="px-5">
+        <h3 className="text-primary font-semibold uppercase">{h3}</h3>
           <HeaderH1 h1="Why choose The Owulet" />
+        </div>
           <WhyImgComponent
             a={"Check out our Services"}
             pattern={Pattern1}
@@ -57,7 +59,10 @@ function WhyOwlet({ h3 }) {
       ) : isYoutube ? (
         <>
         <div className="lgss:w-[80%] lgss:text-center">
+          <div className="px-[5%]">
+          <h3 className="text-primary font-semibold uppercase">{h3}</h3>
           <HeaderH1 h1="Why choose The Owlet for buying Youtube views and subscribers?" />
+          </div>
           </div>
           <WhyImgComponent
             a={"Place an Order now"}
