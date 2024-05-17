@@ -11,12 +11,14 @@ const NavMenu = () => {
       <div className="lgss:flex lgss:flex-row hidden justify-between items-center relative top-7 font-semibold">
         <div className="flex justify-center items-center">
           <Link to={"/"}>
-            <img src={logo} alt="" className="" />
+            <img src={logo} alt="" className="h-8" />
           </Link>
         </div>
         <ul className="lgss:flex gap-7 justify-between w-[50%] font-semibold text-[16px] text-secondary">
           <li>Services</li>
+          <Link to={"/blog"}>
           <li>Blog</li>
+          </Link>
           <li>API</li>
           <Link to={"/instagram"}>
             <li>Buy Instagram Followers</li>
@@ -41,18 +43,18 @@ const NavMenu = () => {
       <div className="flex w-full justify-between items-center py-5 px-[5%] lgss:hidden">
         <div className="flex justify-center items-center">
           <Link to={"/"}>
-          <img src={logo} alt="logo" className="" />
+          <img src={logo} alt="logo" className="h-9" />
           </Link>
         </div>
         {isOpen ? (
           <FaTimes
             onClick={() => setIsOpen(false)}
-            className=" cursor-pointer text-secondary z-20 text-[28px]"
+            className=" cursor-pointer text-secondary z-20 text-[24px]"
           />
         ) : (
           <FaBars
             onClick={() => setIsOpen(true)}
-            className=" cursor-pointer text-secondary z-20 text-[28px]"
+            className=" cursor-pointer text-secondary z-20 text-[24px]"
           />
         )}
       </div>
