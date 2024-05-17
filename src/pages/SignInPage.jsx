@@ -6,7 +6,7 @@ const SignInPage = () => {
   return (
     <div className="bg-[rgb(249,250,251)] pb-10 h-screen">
       <SignInNavMenu />
-      <div className="w-full flex justify-center pt-10">
+      <div className="w-full flex justify-center lgss:pt-14 pt-5">
         <CardSignIn h1="Welcome back" p="Please enter your details." />
       </div>
     </div>

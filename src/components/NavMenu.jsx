@@ -7,7 +7,7 @@ const NavMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div>
+    <div className=''>
       <div className="lgss:flex lgss:flex-row hidden justify-between items-center relative top-7 font-semibold">
         <div className="flex justify-center items-center">
           <Link to={"/"}>
@@ -29,23 +29,29 @@ const NavMenu = () => {
         </ul>
         <div className="flex justify-between items-center gap-4">
           <Link to={"/signin"}>
-          <button className="bg-white rounded-xl py-3 px-6 shadow-md text-secondary border">
+          <button className="bg-white rounded-xl py-3 px-6 shadow-sm text-secondary border">
             Sign in
           </button>
           </Link>
           <Link to={"/signup"}>
-            <button className="bg-primary rounded-xl py-3 px-4 shadow-md text-white">
+            <button className="bg-primary rounded-xl py-3 px-4 shadow-sm text-white">
               Sign up and get N300
             </button>
           </Link>
         </div>
       </div>
-      <div className="flex w-full justify-between items-center py-5 px-[5%] lgss:hidden">
+      <div className="flex w-full justify-between items-center py-5 lgss:hidden border-b shadow-xs px-3">
         <div className="flex justify-center items-center">
           <Link to={"/"}>
           <img src={logo} alt="logo" className="h-9" />
           </Link>
         </div>
+        <div className="flex items-center justify-center gap-6">
+          <Link to={"/signin"}>
+          <button className="bg-white rounded-xl py-3 px-4 shadow-sm text-secondary border">
+            Sign in
+          </button>
+          </Link>
         {isOpen ? (
           <FaTimes
             onClick={() => setIsOpen(false)}
@@ -57,6 +63,7 @@ const NavMenu = () => {
             className=" cursor-pointer text-secondary z-20 text-[24px]"
           />
         )}
+        </div>
       </div>
 
       {isOpen && (
@@ -65,7 +72,7 @@ const NavMenu = () => {
             isOpen ? "translate-x-0 " : "-translate-x-full"
           }`}
         >
-          <div className="flex flex-col justify-center items-center z-100">
+          <div className="flex flex-col justify-center items-center">
             <ul className="flex flex-col gap-8 pb-8 justify-center text-secondary font-semibold text-[20px]">
               <li>Services</li>
               <li>Blog</li>
