@@ -3,9 +3,17 @@ import NotificationBar from "../components/NotificationBar";
 import NavMenu from "../components/NavMenu";
 import Hero from "../components/Hero";
 import Services from "../components/Services";
-import { heroImg, img1 } from "../assets";
+import {
+  Pattern1,
+  Pattern2,
+  PatternImg1,
+  PatternImg2,
+  heroImg,
+  img1,
+} from "../assets";
 import TextLine from "../components/textComponent/TextLine";
 import NeedServices from "../components/textComponent/NeedServices";
+import WhyOwlet from "../components/textComponent/WhyOwlet";
 
 const LandingPage = () => {
   return (
@@ -38,6 +46,16 @@ const LandingPage = () => {
             have plenty of help to market your products or services using these
             media."
         />
+        <div className="px-[5%]">
+          <WhyOwlet
+            h1="Why choose The Owlet"
+            h3="Why Us?"
+            patternImg1={PatternImg1}
+            patternImg2={PatternImg2}
+            pattern1={Pattern1}
+            pattern2={Pattern2}
+          />
+        </div>
       </div>
     </>
   );

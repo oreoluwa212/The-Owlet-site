@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import NotificationBar from "../components/NotificationBar";
 import NavMenu from "../components/NavMenu";
 import Hero from "../components/Hero";
-import { img2, instaHero } from "../assets";
+import { Pattern1, Pattern2, PatternImg1, PatternImg2, img2, instaHero } from "../assets";
 import { TbUsersPlus } from "react-icons/tb";
 import { CiHeart } from "react-icons/ci";
 import { FaRegComment } from "react-icons/fa";
@@ -13,6 +13,7 @@ import { HiAtSymbol } from "react-icons/hi";
 import ServiceComponent from "../components/ServiceComponent";
 import TextLine from "../components/textComponent/TextLine";
 import NeedServices from "../components/textComponent/NeedServices";
+import WhyOwlet from "../components/textComponent/WhyOwlet";
 
 const InstaLanding = () => {
   return (
@@ -51,6 +52,16 @@ const InstaLanding = () => {
           p="Your audience matters more than you would imagine. The majority of viewers check the number of Instagram followers on an account before deciding whether or not to click the follow button. Your brand becomes more well-known as a result of what is known as social proof."
           continued="This trait is required in real life when popularity is seen to exist. No one will pay attention to you even if you are an authority in your industry if you don''t have enough followers to prove it. Instagram is all about statistics, and the amount of Instagram followers, views, and likes you have played a significant role in how visible you are there."
         />
+        <div className="px-[5%]">
+          <WhyOwlet
+            h1="Why choose The Owlet"
+            h3="Why Us?"
+            patternImg1={PatternImg1}
+            patternImg2={PatternImg2}
+            pattern1={Pattern1}
+            pattern2={Pattern2}
+          />
+        </div>
       </div>
     </>
   );

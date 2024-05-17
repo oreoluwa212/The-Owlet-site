@@ -4,8 +4,8 @@ import TextAndIcon from "./TextAndIcon";
 
 function TextLine() {
   return (
-    <div className="lgss:px-[5%] w-full flex justify-center items-center pt-10">
-      <div className="mt-5 flex lgss:w-[80%] gap-6 justify-between">
+    <div className="lgss:px-[5%] px-2 w-full flex justify-center items-center pt-10">
+      <div className="mt-5 flex lgss:w-[80%] gap-4 justify-between">
         <TextAndIcon
           Icon={GoStopwatch}
           h3="An order is made every"

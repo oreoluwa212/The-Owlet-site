@@ -13,6 +13,7 @@ import { RiShareForwardLine } from "react-icons/ri";
 import { PiApplePodcastsLogoThin } from "react-icons/pi";
 import TextLine from "../components/textComponent/TextLine";
 import NeedServices from "../components/textComponent/NeedServices";
+import WhyOwlet from "../components/textComponent/WhyOwlet";
 
 const YoutubeLanding = () => {
   return (
@@ -54,6 +55,11 @@ const YoutubeLanding = () => {
           p="While both views and subscribers are important for YouTube success, they represent different aspects of your channel's health. Subscribers are your core audience, the dedicated fans who actively engage with your content. They are more likely to watch future videos, share them, and drive further growth."
           continued="Views, on the other hand, indicate the overall popularity of your videos. A high view count attracts new viewers, increases discoverability, and potentially leads to more subscribers. Both metrics work together to build a strong YouTube presence."
         />
+        <div className="px-[5%]">
+          <WhyOwlet
+            h3="Why Us?"
+          />
+        </div>
       </div>
     </>
   );

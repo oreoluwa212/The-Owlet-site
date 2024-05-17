@@ -20,6 +20,18 @@ import img1 from "../assets/images/img1.png";
 import img2 from "../assets/images/img2.png";
 import img3 from "../assets/images/img3.png";
 import HeroBlog from "../assets/images/blogHero.png";
+import Pattern1 from "../assets/images/Pattern1.png";
+import Pattern2 from "../assets/images/Pattern2.png";
+import Pattern3 from "../assets/images/Pattern3.png";
+import Pattern4 from "../assets/images/Pattern4.png";
+import Pattern5 from "../assets/images/Pattern5.png";
+import Pattern6 from "../assets/images/Pattern6.png";
+import PatternImg6 from "../assets/images/PatternImg6.png";
+import PatternImg5 from "../assets/images/PatternImg5.png";
+import PatternImg4 from "../assets/images/PatternImg4.png";
+import PatternImg3 from "../assets/images/PatternImg3.png";
+import PatternImg2 from "../assets/images/PatternImg2.png";
+import PatternImg1 from "../assets/images/PatternImg1.png";
 
 export {
   logo,
@@ -44,4 +56,16 @@ export {
   img2,
   img3,
   HeroBlog,
+  Pattern1,
+  Pattern2,
+  Pattern3,
+  Pattern4,
+  Pattern5,
+  Pattern6,
+  PatternImg1,
+  PatternImg2,
+  PatternImg3,
+  PatternImg4,
+  PatternImg5,
+  PatternImg6,
 };
