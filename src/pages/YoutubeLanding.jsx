@@ -2,7 +2,7 @@ import React from "react";
 import NotificationBar from "../components/NotificationBar";
 import NavMenu from "../components/NavMenu";
 import Hero from "../components/Hero";
-import { youHero } from "../assets";
+import { img3, youHero } from "../assets";
 import ServiceComponent from "../components/ServiceComponent";
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { TbUsersPlus } from "react-icons/tb";
@@ -11,6 +11,8 @@ import { BiLike } from "react-icons/bi";
 import { IoChatboxOutline } from "react-icons/io5";
 import { RiShareForwardLine } from "react-icons/ri";
 import { PiApplePodcastsLogoThin } from "react-icons/pi";
+import TextLine from "../components/textComponent/TextLine";
+import NeedServices from "../components/textComponent/NeedServices";
 
 const YoutubeLanding = () => {
   return (
@@ -44,6 +46,14 @@ const YoutubeLanding = () => {
             </div>
           </div>
         </div>
+        <TextLine />
+        <NeedServices
+          img={img3}
+          h3="WHY YOU NEED our services"
+          h1="Why are Youtube views and subscribers so important?"
+          p="While both views and subscribers are important for YouTube success, they represent different aspects of your channel's health. Subscribers are your core audience, the dedicated fans who actively engage with your content. They are more likely to watch future videos, share them, and drive further growth."
+          continued="Views, on the other hand, indicate the overall popularity of your videos. A high view count attracts new viewers, increases discoverability, and potentially leads to more subscribers. Both metrics work together to build a strong YouTube presence."
+        />
       </div>
     </>
   );

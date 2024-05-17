@@ -3,7 +3,9 @@ import NotificationBar from "../components/NotificationBar";
 import NavMenu from "../components/NavMenu";
 import Hero from "../components/Hero";
 import Services from "../components/Services";
-import { heroImg } from "../assets";
+import { heroImg, img1 } from "../assets";
+import TextLine from "../components/textComponent/TextLine";
+import NeedServices from "../components/textComponent/NeedServices";
 
 const LandingPage = () => {
   return (
@@ -19,6 +21,23 @@ const LandingPage = () => {
           />
         </div>
         <Services />
+        <TextLine />
+        <NeedServices
+          img={img1}
+          h3="WHY YOU NEED our services"
+          h1="Why is social media marketing so effective?"
+          p="It is very clear to see that social marketing has become a treasured
+            tool in the scheme of things these days. Considering that more and
+            more people are doing online work and are buying products on the
+            internet, marketers cannot afford to neglect social networking sites
+            to get in touch with customers."
+          continued="Here at Theowletonline can promote you to different social media
+            entries to bring in a broader Audience to your customer base, when
+            we sell a social media reseller panel, we guarantee that you will
+            see and increase in your client base. It also means that you can
+            have plenty of help to market your products or services using these
+            media."
+        />
       </div>
     </>
   );
