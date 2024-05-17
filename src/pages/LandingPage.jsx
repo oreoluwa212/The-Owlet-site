@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import NotificationBar from "../components/NotificationBar";
 import NavMenu from "../components/NavMenu";
 import Hero from "../components/Hero";
@@ -14,6 +14,7 @@ import {
 import TextLine from "../components/textComponent/TextLine";
 import NeedServices from "../components/textComponent/NeedServices";
 import WhyOwlet from "../components/textComponent/WhyOwlet";
+import ReadySection from "../components/ReadySection";
 
 const LandingPage = () => {
   return (
@@ -46,7 +47,7 @@ const LandingPage = () => {
             have plenty of help to market your products or services using these
             media."
         />
-        <div className="px-[5%]">
+        <div className="w-full flex justify-center">
           <WhyOwlet
             h1="Why choose The Owlet"
             h3="Why Us?"
@@ -56,6 +57,7 @@ const LandingPage = () => {
             pattern2={Pattern2}
           />
         </div>
+        <ReadySection/>
       </div>
     </>
   );

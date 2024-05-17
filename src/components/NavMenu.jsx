@@ -68,11 +68,11 @@ const NavMenu = () => {
 
       {isOpen && (
         <div
-          className={`fixed top-0 left-0 h-screen bg-white w-full text-white font-bold lgss:hidden flex flex-col pt-16 transform transition-transform duration-300 ${
+          className={`fixed top-0 left-0 h-screen bg-white w-full text-white font-bold lgss:hidden flex flex-col pt-16 z-100 transform transition-transform duration-300 ${
             isOpen ? "translate-x-0 " : "-translate-x-full"
           }`}
         >
-          <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center items-center ">
             <ul className="flex flex-col gap-8 pb-8 justify-center text-secondary font-semibold text-[20px]">
               <li>Services</li>
               <Link to={"/blog"}>

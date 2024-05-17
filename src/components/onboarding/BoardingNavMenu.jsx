@@ -17,7 +17,9 @@ function BoardingNavMenu() {
         </div>
         <ul className="lgss:flex gap-7 justify-between lgss:w-[50%] w-[70%] font-semibold text-[16px] text-secondary">
           <li>Services</li>
-          <li>Blog</li>
+          <Link to={"/blog"}>
+            <li>Blog</li>
+          </Link>
           <li>API</li>
           <Link to={"/instagram"}>
             <li>Buy Instagram Followers</li>
@@ -60,7 +62,9 @@ function BoardingNavMenu() {
           <div className="flex flex-col justify-center items-center z-100">
             <ul className="flex flex-col gap-8 pb-8 justify-center text-secondary font-semibold text-[20px]">
               <li>Services</li>
-              <li>Blog</li>
+              <Link to={"/blog"}>
+                <li>Blog</li>
+              </Link>
               <li>API</li>
               <Link to={"/instagram"}>
                 <li>Buy Instagram Followers</li>

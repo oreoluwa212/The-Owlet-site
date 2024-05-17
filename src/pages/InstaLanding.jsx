@@ -14,6 +14,7 @@ import ServiceComponent from "../components/ServiceComponent";
 import TextLine from "../components/textComponent/TextLine";
 import NeedServices from "../components/textComponent/NeedServices";
 import WhyOwlet from "../components/textComponent/WhyOwlet";
+import ReadySection from "../components/ReadySection";
 
 const InstaLanding = () => {
   return (
@@ -52,7 +53,7 @@ const InstaLanding = () => {
           p="Your audience matters more than you would imagine. The majority of viewers check the number of Instagram followers on an account before deciding whether or not to click the follow button. Your brand becomes more well-known as a result of what is known as social proof."
           continued="This trait is required in real life when popularity is seen to exist. No one will pay attention to you even if you are an authority in your industry if you don''t have enough followers to prove it. Instagram is all about statistics, and the amount of Instagram followers, views, and likes you have played a significant role in how visible you are there."
         />
-        <div className="px-[5%]">
+        <div className="w-full flex justify-center">
           <WhyOwlet
             h1="Why choose The Owlet"
             h3="Why Us?"
@@ -62,6 +63,7 @@ const InstaLanding = () => {
             pattern2={Pattern2}
           />
         </div>
+        <ReadySection />
       </div>
     </>
   );

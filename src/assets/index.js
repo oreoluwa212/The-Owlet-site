@@ -32,6 +32,9 @@ import PatternImg4 from "../assets/images/PatternImg4.png";
 import PatternImg3 from "../assets/images/PatternImg3.png";
 import PatternImg2 from "../assets/images/PatternImg2.png";
 import PatternImg1 from "../assets/images/PatternImg1.png";
+import iphone1 from "../assets/images/iPhone1.png";
+import iphone2 from "../assets/images/iPhone2.png";
+import screen from "../assets/images/Screen.png";
 
 export {
   logo,
@@ -68,4 +71,7 @@ export {
   PatternImg4,
   PatternImg5,
   PatternImg6,
+  iphone1,
+  iphone2,
+  screen,
 };
