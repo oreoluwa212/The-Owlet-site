@@ -20,6 +20,12 @@ import img1 from "../assets/images/img1.png";
 import img2 from "../assets/images/img2.png";
 import img3 from "../assets/images/img3.png";
 import HeroBlog from "../assets/images/blogHero.png";
+import blogImg1 from "../assets/images/blogImg1.png";
+import blogImg2 from "../assets/images/blogImg2.png";
+import blogImg3 from "../assets/images/blogImg3.png";
+import blogImg4 from "../assets/images/blogImg4.png";
+import blogImg5 from "../assets/images/blogImg5.png";
+import blogImg6 from "../assets/images/blogImg6.png";
 import Pattern1 from "../assets/images/Pattern1.png";
 import Pattern2 from "../assets/images/Pattern2.png";
 import Pattern3 from "../assets/images/Pattern3.png";
@@ -59,6 +65,12 @@ export {
   img2,
   img3,
   HeroBlog,
+  blogImg1,
+  blogImg2,
+  blogImg3,
+  blogImg4,
+  blogImg5,
+  blogImg6,
   Pattern1,
   Pattern2,
   Pattern3,
