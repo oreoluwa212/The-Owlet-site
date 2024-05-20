@@ -16,6 +16,7 @@ import NeedServices from "../components/textComponent/NeedServices";
 import WhyOwlet from "../components/textComponent/WhyOwlet";
 import ReadySection from "../components/ReadySection";
 import Footer from "../components/Footer";
+import HowItWorks from "../components/HowItWorks";
 
 const InstaLanding = () => {
   return (
@@ -64,8 +65,9 @@ const InstaLanding = () => {
             pattern2={Pattern2}
           />
         </div>
+        <HowItWorks h2={"Choose Instagram service"} />
         <ReadySection />
-        <Footer/>
+        <Footer />
       </div>
     </>
   );

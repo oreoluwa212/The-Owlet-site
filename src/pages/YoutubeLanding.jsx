@@ -16,6 +16,7 @@ import NeedServices from "../components/textComponent/NeedServices";
 import WhyOwlet from "../components/textComponent/WhyOwlet";
 import ReadySection from "../components/ReadySection";
 import Footer from "../components/Footer";
+import HowItWorks from "../components/HowItWorks";
 
 const YoutubeLanding = () => {
   return (
@@ -60,8 +61,9 @@ const YoutubeLanding = () => {
         <div className="w-full flex justify-center">
           <WhyOwlet h3="Why Us?" />
         </div>
+        <HowItWorks h2={"Choose Youtube service"} />
         <ReadySection />
-        <Footer/>
+        <Footer />
       </div>
     </>
   );

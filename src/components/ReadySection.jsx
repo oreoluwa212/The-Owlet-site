@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 function ReadySection() {
   return (
-    <div className="w-full flex flex-col lgss:flex-row bg-black bg-gradient-to-br from-white to-[#f5dddc] items-center justify-between py-10 mt-6">
+    <div className="w-full flex flex-col lgss:flex-row bg-black bg-gradient-to-br from-white to-[#f5dddc] items-center justify-between py-10">
       <div className="lgss:w-[40%]">
         <div className="px-4 lgss:pl-[20%] flex flex-col gap-3">
           <HeaderH1 h1={"Ready to transform your social media presence?"} />

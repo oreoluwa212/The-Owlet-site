@@ -46,6 +46,9 @@ import twitter from "../assets/images/twitter.png";
 import fb from "../assets/images/fb.png";
 import ig from "../assets/images/ig.png";
 import Utube from "../assets/images/Utube.png";
+import illustration1 from "../assets/images/illustration1.png";
+import illustration2 from "../assets/images/Illustration2.png";
+import illustration3 from "../assets/images/Illustration3.png";
 
 export {
   logo,
@@ -96,4 +99,7 @@ export {
   fb,
   ig,
   Utube,
+  illustration1,
+  illustration2,
+  illustration3,
 };
