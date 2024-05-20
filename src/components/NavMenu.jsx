@@ -52,7 +52,7 @@ const NavMenu = () => {
           </Link>
         </div>
       </div>
-      <div className="flex w-full justify-between items-center py-5 lgss:hidden border-b shadow-xs px-3">
+      <div className="flex lgss:hidden w-full justify-between items-center py-5 border-b shadow-xs px-3">
         <div className="flex justify-center items-center">
           <Link to={"/"}>
             <img src={logo} alt="logo" className="h-9" />

@@ -23,7 +23,6 @@ const LandingPage = () => {
       <div className="pb-7">
         <NotificationBar />
         <div className="flex lgss:hidden w-full">
-        <NavMenu />
         </div>
         <div className="px-[5%] bg-gradient-to-br from-white to-[#f5dddc]">
         <NavMenu />
