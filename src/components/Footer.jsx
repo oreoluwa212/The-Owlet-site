@@ -1,5 +1,5 @@
 import { FaUser } from "react-icons/fa";
-import { logo } from "../assets";
+import { Utube, fb, ig, linkedin, logo, twitter } from "../assets";
 import SubmitBtn from "./buttons/SubmitBtn";
 import FormInput from "./input/FormInput";
 import HeaderH1 from "./textComponent/HeaderH1";
@@ -67,7 +67,9 @@ function Footer() {
           </div>
         </div>
         <div className="lgss:w-1/3 w-full flex flex-col gap-3 pt-6">
-          <p className="text-[14px] text-[#667085] font-semibold">Useful links</p>
+          <p className="text-[14px] text-[#667085] font-semibold">
+            Useful links
+          </p>
           <div className="flex lgss:flex-row justify-between font-semibold flex-col gap-2">
             <div className="flex flex-col gap-2">
               <Link to={"/"}>
@@ -93,6 +95,18 @@ function Footer() {
               </Link>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="border-t-2 border-[#EAECF0] w-full pt-5 mt-10 flex lgss:flex-row flex-col-reverse gap-4 justify-between px-[10%]">
+        <div className="lgss:w-1/2">
+          <ParagraphText p="© 2023 The Owlet. All rights reserved." />
+        </div>
+        <div className="lgss:w-1/3 flex gap-6 lgss:justify-end">
+          <img className="h-6" src={linkedin} alt="" />
+          <img src={twitter} alt="" />
+          <img src={fb} alt="" />
+          <img src={ig} alt="" />
+          <img src={Utube} alt="" />
         </div>
       </div>
     </div>

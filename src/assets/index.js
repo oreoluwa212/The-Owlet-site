@@ -41,6 +41,11 @@ import PatternImg1 from "../assets/images/PatternImg1.png";
 import iphone1 from "../assets/images/iPhone1.png";
 import iphone2 from "../assets/images/iPhone2.png";
 import screen from "../assets/images/Screen.png";
+import linkedin from "../assets/images/linkedin.png";
+import twitter from "../assets/images/twitter.png";
+import fb from "../assets/images/fb.png";
+import ig from "../assets/images/ig.png";
+import Utube from "../assets/images/Utube.png";
 
 export {
   logo,
@@ -86,4 +91,9 @@ export {
   iphone1,
   iphone2,
   screen,
+  linkedin,
+  twitter,
+  fb,
+  ig,
+  Utube,
 };

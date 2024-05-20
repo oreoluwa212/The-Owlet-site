@@ -9,6 +9,7 @@ import ColoredBtn from "../components/buttons/ColoredBtn";
 import BlogImgComponent from "../components/BlogImgComponent";
 import ReadySection from "../components/ReadySection";
 import Footer from "../components/Footer";
+import Pagination from "../components/buttons/Pagination";
 
 const BlogLanding = () => {
   return (
@@ -75,6 +76,7 @@ const BlogLanding = () => {
           </div>
         </div>
         <BlogImgComponent />
+        <Pagination/>
         <ReadySection />
         <Footer/>
       </div>
