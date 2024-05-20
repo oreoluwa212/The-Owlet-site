@@ -75,9 +75,9 @@ const Hero = ({ heroImg, h1, p }) => {
             </div>
           </div>
         )}
-        <img className="lgss:h-[68vh] z-10 pt-10" src={heroImg} alt="people" />
+        <img className="lgss:h-[68vh] lgss:mt-0 mt-10 pt-10" src={heroImg} alt="people" />
         {location.pathname === "/" && (
-          <div className="bg-white shadow-lg w-[200px] h-16 absolute bottom-[25%] z-20 lgss:right-10 -right-5 rounded-[16px] px-4 flex justify-between items-center">
+          <div className="bg-white shadow-lg w-[200px] h-16 absolute bottom-[25%] lgss:right-10 -right-5 rounded-[16px] px-4 flex justify-between items-center">
             <img
               className="h-9 bg-[#ECFDF3] p-1 rounded-full"
               src={supportImg}
