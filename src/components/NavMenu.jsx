@@ -19,7 +19,7 @@ const NavMenu = () => {
   }, [isOpen]);
 
   return (
-    <div className=''>
+    <div className='w-full'>
       <div className="lgss:flex lgss:flex-row hidden justify-between items-center relative top-7 font-semibold">
         <div className="flex justify-center items-center">
           <Link to={"/"}>
@@ -80,11 +80,11 @@ const NavMenu = () => {
 
       {isOpen && (
         <div
-          className={`fixed top-0 left-0 h-screen bg-white w-full text-white font-bold lgss:hidden flex flex-col pt-16 z-100 transform transition-transform duration-300 ${
+          className={`fixed top-0 left-0 h-screen bg-white w-full text-white font-bold lgss:hidden flex flex-col pt-8 z-10 transform transition-transform duration-300 ${
             isOpen ? "translate-x-0 " : "-translate-x-full"
           }`}
         >
-          <div className="flex flex-col justify-center items-center w-full">
+          <div className="flex flex-col justify-center items-center w-full h-screen">
             <ul className="flex flex-col gap-8 pb-8 justify-center text-secondary font-semibold text-[20px]">
               <li>Services</li>
               <Link to={"/blog"}>
@@ -98,7 +98,7 @@ const NavMenu = () => {
                 <li>Buy Youtube Followers</li>
               </Link>
             </ul>
-            <div className="flex flex-col-reverse justify-center items-center gap-10 bg-white w-full px-[10%]">
+            <div className="flex flex-col-reverse justify-center items-center gap-10 w-full px-[10%]">
               <Link className='w-full' to={"/signin"}>
                 <button className="bg-white rounded-xl py-4 px-6 shadow-md text-secondary w-full border">
                   Sign in

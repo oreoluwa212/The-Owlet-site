@@ -7,6 +7,8 @@ import { FiArrowUpRight } from "react-icons/fi";
 import ParagraphText from "../components/textComponent/ParagraphText";
 import ColoredBtn from "../components/buttons/ColoredBtn";
 import BlogImgComponent from "../components/BlogImgComponent";
+import ReadySection from "../components/ReadySection";
+import Footer from "../components/Footer";
 
 const BlogLanding = () => {
   return (
@@ -72,8 +74,9 @@ const BlogLanding = () => {
             </div>
           </div>
         </div>
-
-        <BlogImgComponent/>
+        <BlogImgComponent />
+        <ReadySection />
+        <Footer/>
       </div>
     </>
   );

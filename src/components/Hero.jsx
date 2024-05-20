@@ -8,7 +8,7 @@ import { FaPlus } from "react-icons/fa";
 const Hero = ({ heroImg, h1, p }) => {
   const location = useLocation();
   return (
-    <div className="flex flex-col w-full lgss:flex-row justify-between items-center pt-4 lgss:pt-9 pb-16 lgss:mt-10">
+    <div className="flex flex-col w-full lgss:flex-row justify-between items-center pt-9 pb-16 lgss:mt-10">
       <div className="lgss:w-[50%] w-full">
         <div className="w-full flex flex-col gap-8">
           <h1 className="lgss:leading-[60px] text-[2rem] lgss:text-[4rem] text-grey font-bold">

@@ -15,14 +15,18 @@ import TextLine from "../components/textComponent/TextLine";
 import NeedServices from "../components/textComponent/NeedServices";
 import WhyOwlet from "../components/textComponent/WhyOwlet";
 import ReadySection from "../components/ReadySection";
+import Footer from "../components/Footer";
 
 const LandingPage = () => {
   return (
     <>
       <div className="pb-7">
         <NotificationBar />
+        <div className="flex lgss:hidden w-full">
+        <NavMenu />
+        </div>
         <div className="px-[5%] bg-gradient-to-br from-white to-[#f5dddc]">
-          <NavMenu />
+        <NavMenu />
           <Hero
             h1="Elevate your social media presence"
             p="Boost your online presence with our affordable, fast, and reliable SMM and SEO services. We offer high-quality automatic social media solutions tailored for resellers and business owners, ensuring lasting connections and top-notch support."
@@ -57,7 +61,8 @@ const LandingPage = () => {
             pattern2={Pattern2}
           />
         </div>
-        <ReadySection/>
+        <ReadySection />
+        <Footer />
       </div>
     </>
   );

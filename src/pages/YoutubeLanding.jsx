@@ -15,6 +15,7 @@ import TextLine from "../components/textComponent/TextLine";
 import NeedServices from "../components/textComponent/NeedServices";
 import WhyOwlet from "../components/textComponent/WhyOwlet";
 import ReadySection from "../components/ReadySection";
+import Footer from "../components/Footer";
 
 const YoutubeLanding = () => {
   return (
@@ -60,6 +61,7 @@ const YoutubeLanding = () => {
           <WhyOwlet h3="Why Us?" />
         </div>
         <ReadySection />
+        <Footer/>
       </div>
     </>
   );

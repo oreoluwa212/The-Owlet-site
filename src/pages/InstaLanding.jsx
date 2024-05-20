@@ -15,6 +15,7 @@ import TextLine from "../components/textComponent/TextLine";
 import NeedServices from "../components/textComponent/NeedServices";
 import WhyOwlet from "../components/textComponent/WhyOwlet";
 import ReadySection from "../components/ReadySection";
+import Footer from "../components/Footer";
 
 const InstaLanding = () => {
   return (
@@ -64,6 +65,7 @@ const InstaLanding = () => {
           />
         </div>
         <ReadySection />
+        <Footer/>
       </div>
     </>
   );

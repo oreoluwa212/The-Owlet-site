@@ -6,7 +6,7 @@ import { blogImg1, blogImg2, blogImg3, blogImg4, blogImg5, blogImg6 } from "../a
 function BlogImgComponent() {
   return (
     <div className="px-[5%] w-full flex flex-col gap-10 mt-10">
-      <div className="w-full flex lgss:flex-row flex-col gap-10">
+      <div className="w-full flex lgss:flex-row justify-center items-center flex-col gap-10">
         <div className="flex justify-center items-center flex-col lgss:w-1/3">
           <img className="rounded-[20px]" src={blogImg1} alt="" />
           <div className="w-full flex flex-col gap-2 px-2">
@@ -84,8 +84,8 @@ function BlogImgComponent() {
           </div>
         </div>
       </div>
-      <div className="w-full flex lgss:flex-row flex-col gap-10">
-        <div className="flex justify-center items-center flex-col lgss:w-1/3">
+      <div className="w-full flex lgss:flex-row justify-center items-center flex-col gap-10">
+        <div className="flex justify-center items-center flex-col lgss:w-1/3 lgss:pt-8">
           <img className="rounded-[20px]" src={blogImg4} alt="" />
           <div className="w-full flex flex-col gap-2 px-2">
             <div className="flex justify-between w-full items-center gap-10 text-[24px] pt-4">
