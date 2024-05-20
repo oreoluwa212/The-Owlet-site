@@ -5,7 +5,7 @@ import { blogImg1, blogImg2, blogImg3, blogImg4, blogImg5, blogImg6 } from "../a
 
 function BlogImgComponent() {
   return (
-    <div className="px-[5%] w-full flex flex-col gap-10 mt-10">
+    <div className="px-[5%] w-full flex flex-col gap-10 mt-10 shadow-sm border py-10">
       <div className="w-full flex lgss:flex-row justify-center items-center flex-col gap-10">
         <div className="flex justify-center items-center flex-col lgss:w-1/3">
           <img className="rounded-[20px]" src={blogImg1} alt="" />

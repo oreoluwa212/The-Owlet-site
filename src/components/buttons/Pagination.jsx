@@ -3,7 +3,7 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 function Pagination() {
   return (
     <>
-      <div className="w-full hidden lgss:flex justify-between items-center px-[5%] py-14">
+      <div className="w-full hidden lgss:flex justify-between items-center px-[5%] py-12">
         <button className="flex gap-3 justify-center items-center px-3 font-semibold rounded-[8px] py-1">
           <FaArrowLeft />
           Previous
@@ -20,6 +20,18 @@ function Pagination() {
         <button className="flex gap-3 justify-center items-center px-3 font-semibold rounded-[8px] py-1">
           <FaArrowRight />
           Next
+        </button>
+      </div>
+
+      <div className="w-full lgss:hidden flex justify-between items-center px-[5%] pt-6 mb-12">
+        <button className="flex gap-3 justify-center items-center px-3 font-semibold rounded-[8px] border py-2">
+          <FaArrowLeft />
+        </button>
+        <div className="text-[#344054] font-medium">
+          <h2>Page 1 of 20</h2>
+        </div>
+        <button className="flex gap-3 justify-center items-center px-3 font-semibold rounded-[8px] border py-2">
+          <FaArrowRight />
         </button>
       </div>
     </>
