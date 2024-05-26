@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { logo } from '../assets';
+import { logo } from "../assets";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const NavMenu = () => {
@@ -8,22 +8,22 @@ const NavMenu = () => {
 
   useEffect(() => {
     if (isOpen) {
-      document.body.classList.add('no-scroll');
+      document.body.classList.add("no-scroll");
     } else {
-      document.body.classList.remove('no-scroll');
+      document.body.classList.remove("no-scroll");
     }
 
     return () => {
-      document.body.classList.remove('no-scroll');
+      document.body.classList.remove("no-scroll");
     };
   }, [isOpen]);
 
   return (
-    <div className='w-full'>
-      <div className="lgss:flex lgss:flex-row hidden justify-between items-center relative top-7 font-semibold">
+    <div className="w-full relative">
+      <div className="lgss:flex lgss:flex-row hidden justify-between items-center font-semibold py-3 bg-transparent">
         <div className="flex justify-center items-center">
           <Link to={"/"}>
-            <img src={logo} alt="" className="h-8" />
+            <img src={logo} alt="logo" className="h-8" />
           </Link>
         </div>
         <ul className="lgss:flex gap-7 justify-between w-[50%] font-semibold text-[16px] text-secondary">
@@ -52,7 +52,7 @@ const NavMenu = () => {
           </Link>
         </div>
       </div>
-      <div className="flex lgss:hidden w-full justify-between items-center py-5 border-b shadow-xs px-3">
+      <div className="flex lgss:hidden w-full justify-between items-center py-5 border-b px-10">
         <div className="flex justify-center items-center">
           <Link to={"/"}>
             <img src={logo} alt="logo" className="h-9" />
@@ -67,12 +67,12 @@ const NavMenu = () => {
           {isOpen ? (
             <FaTimes
               onClick={() => setIsOpen(false)}
-              className=" cursor-pointer text-secondary z-20 text-[24px]"
+              className="cursor-pointer text-secondary z-20 text-[24px]"
             />
           ) : (
             <FaBars
               onClick={() => setIsOpen(true)}
-              className=" cursor-pointer text-secondary z-20 text-[24px]"
+              className="cursor-pointer text-secondary z-20 text-[24px]"
             />
           )}
         </div>
@@ -80,11 +80,11 @@ const NavMenu = () => {
 
       {isOpen && (
         <div
-          className={`fixed top-0 left-0 h-screen bg-white w-full text-white font-bold lgss:hidden flex flex-col pt-8 z-10 transform transition-transform duration-300 ${
-            isOpen ? "translate-x-0 " : "-translate-x-full"
+          className={`fixed top-0 left-0 h-screen bg-white w-full text-white font-bold lgss:hidden flex flex-col pt-8 z-50 transform transition-transform duration-300 ${
+            isOpen ? "translate-x-0" : "-translate-x-full"
           }`}
         >
-          <div className="flex flex-col justify-center items-center w-full h-screen">
+          <div className="bg-white flex flex-col justify-center items-center w-full h-screen  z-1000">
             <ul className="flex flex-col gap-8 pb-8 justify-center text-secondary font-semibold text-[20px]">
               <li>Services</li>
               <Link to={"/blog"}>
@@ -99,12 +99,12 @@ const NavMenu = () => {
               </Link>
             </ul>
             <div className="flex flex-col-reverse justify-center items-center gap-10 w-full px-[10%]">
-              <Link className='w-full' to={"/signin"}>
+              <Link className="w-full" to={"/signin"}>
                 <button className="bg-white rounded-xl py-4 px-6 shadow-md text-secondary w-full border">
                   Sign in
                 </button>
               </Link>
-              <Link className='w-full' to={"/signup"}>
+              <Link className="w-full" to={"/signup"}>
                 <button className="bg-primary rounded-xl py-4 px-3 shadow-md text-white w-full">
                   Sign up and get N300
                 </button>
@@ -115,6 +115,6 @@ const NavMenu = () => {
       )}
     </div>
   );
-}
+};
 
 export default NavMenu;

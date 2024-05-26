@@ -2,19 +2,25 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AiOutlineUser } from "react-icons/ai";
 import { RxVideo } from "react-icons/rx";
-import { Avatar1, Avatar2, Avatar3, Avatar4, AvatarPlus, supportImg } from "../assets";
-import { FaPlus } from "react-icons/fa";
+import {
+  Avatar1,
+  Avatar2,
+  Avatar3,
+  Avatar4,
+  AvatarPlus,
+  supportImg,
+} from "../assets";
 
 const Hero = ({ heroImg, h1, p }) => {
   const location = useLocation();
   return (
-    <div className="flex flex-col w-full lgss:flex-row justify-between items-center lgss:pt-2 pt-9 pb-16 lgss:mt-0 mt-10">
-      <div className="lgss:w-[50%] w-full mt-5 lgss:mt-0">
-        <div className="w-full flex flex-col gap-8">
-          <h1 className="lgss:leading-[60px] text-[2rem] lgss:text-[4rem] text-grey font-bold">
+    <div className="flex flex-col w-full lgss:flex-row justify-between items-center relative lgss:h-[80vh]">
+      <div className="lgss:w-[55%] w-full mt-5 lgss:mt-0">
+        <div className="w-full flex flex-col gap-10 pt-10 lgss:pt-0">
+          <h1 className="lgss:leading-[60px] text-[2.3rem] lgss:text-[3.2rem] text-grey font-bold">
             {h1}
           </h1>
-          <p className="pb-6 text-secondary ">{p}</p>
+          <p className="pb-6 text-secondary lgss:text-[0.8rem] text-[1.3rem]">{p}</p>
         </div>
         <div className="hidden lgss:flex">
           <Link to={"/signin"}>
@@ -49,9 +55,9 @@ const Hero = ({ heroImg, h1, p }) => {
           </Link>
         </div>
       </div>
-      <div className="lgss:w-[50%] p-10 flex justify-center relative w-full">
+      <div className="lgss:w-[45%] flex justify-center w-full">
         {location.pathname === "/" && (
-          <div className="bg-white shadow-lg w-[260px] h-16 absolute bottom-[40%] -z-1 lgss:right-[45%] hidden rounded-[16px] px-4 lgss:flex justify-between items-center">
+          <div className="bg-white shadow-lg w-[260px] py-2 h-16 absolute bottom-[25%] lgss:bottom-[50%] lgss:right-[23%] right-[50%] rounded-[16px] px-4 lgss:flex hidden justify-between items-center">
             <div className="flex justify-center items-center w-[55%]">
               <div style={{ display: "block", width: "100%" }}>
                 <img src={Avatar1} alt="" style={{ width: "100%" }} />
@@ -69,15 +75,19 @@ const Hero = ({ heroImg, h1, p }) => {
                 <img src={AvatarPlus} alt="" style={{ width: "100%" }} />
               </div>
             </div>
-            <div className="flex flex-col text-[#344054] w-[45%]">
+            <div className="flex lgss:flex-col text-[#344054] lgss:w-[45%] items-center gap-2">
               <h1 className="text-[20px] font-bold">13K+</h1>
               <p>new followers</p>
             </div>
           </div>
         )}
-        <img className="lgss:h-[68vh] lgss:mt-0 mt-10 pt-10" src={heroImg} alt="people" />
+        <img
+          className="lgss:h-[60vh] lgss:mt-0"
+          src={heroImg}
+          alt="people"
+        />
         {location.pathname === "/" && (
-          <div className="bg-white shadow-lg w-[200px] h-16 absolute bottom-[25%] lgss:right-10 -right-5 rounded-[16px] px-4 flex justify-between items-center">
+          <div className="bg-white shadow-lg w-[200px] h-16 absolute bottom-[15%] -right-10 lgss:-right-5 rounded-[16px] px-4 lgss:flex justify-between items-center hidden">
             <img
               className="h-9 bg-[#ECFDF3] p-1 rounded-full"
               src={supportImg}

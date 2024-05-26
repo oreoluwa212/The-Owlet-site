@@ -1,5 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-
 .no-scroll {
    overflow: hidden;
+}
+
+.z-1 {
+   z-index: 1;
+}
+
+.z-10 {
+   z-index: 10;
+}
+
+.z-20 {
+   z-index: 20;
+}
+
+.z-50 {
+   z-index: 50;
+}
+
+.text-secondary {
+   color: #6c757d;
+}
+
+.bg-white {
+   background-color: #fff;
+}
+
+.bg-primary {
+   background-color: #007bff;
+}
+
+.shadow-xs {
+   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.shadow-sm {
+   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.shadow-md {
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.rounded-xl {
+   border-radius: 1rem;
+}
+
+.font-semibold {
+   font-weight: 600;
 }

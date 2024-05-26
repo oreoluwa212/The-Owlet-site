@@ -35,7 +35,7 @@ function ReadySection() {
       </div>
       <div className="lgss:w-[50%] w-full pt-8">
         <div className="w-full lgss:flex relative hidden">
-          <img src={iphone1} className="absolute z-100 -left-5 -top-5 " alt="" />
+          <img src={iphone1} className="absolute z-10" alt="" />
           <img src={iphone2} className=" z-1" alt="" />
         </div>
         <div className="lgss:hidden flex justify-center items-center">
