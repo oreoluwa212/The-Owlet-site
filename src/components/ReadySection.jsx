@@ -38,8 +38,8 @@ function ReadySection() {
           <img src={iphone1} className="absolute z-10" alt="" />
           <img src={iphone2} className=" z-1" alt="" />
         </div>
-        <div className="lgss:hidden flex justify-center items-center">
-          <img className="" src={screen} alt="" />
+        <div className="lgss:hidden flex justify-center items-center pt-5">
+          <img className="w-[180px]" src={screen} alt="" />
         </div>
       </div>
     </div>

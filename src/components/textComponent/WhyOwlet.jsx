@@ -27,7 +27,7 @@ function WhyOwlet({ h3 }) {
         <>
         <div className="px-5">
         <h3 className="text-primary font-semibold uppercase">{h3}</h3>
-          <HeaderH1 h1="Why choose The Owulet" />
+          <HeaderH1 h1="Why choose The Owlet" />
         </div>
           <WhyImgComponent
             a={"Check out our Services"}
