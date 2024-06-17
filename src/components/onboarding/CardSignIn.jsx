@@ -45,7 +45,7 @@ function CardSignIn({ h1, p }) {
       setLoading(true);
       try {
         const response = await axios.post(
-          "https://theowletapp.com/server/api/v1/auth/login",
+          "https://theowletapp.com/server/api/v1/users/auth/login",
           formData,
           {
             headers: {
@@ -53,8 +53,10 @@ function CardSignIn({ h1, p }) {
             },
           }
         );
+        console.log(response)
         toast.success("Login successful!");
-        navigate("/");
+      window.location.href = "http://localhost:5174";
+      // window.location.href = "https://the-owlet.vercel.app/";
       } catch (error) {
         console.error(error);
         setErrors({

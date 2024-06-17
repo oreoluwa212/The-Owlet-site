@@ -53,7 +53,7 @@ function SignUpPage({ h1, p }) {
       setLoading(true);
       try {
         const response = await axios.post(
-          "https://theowletapp.com/server/api/v1/auth/register",
+          "https://theowletapp.com/server/api/v1/users/auth/register",
           formData,
           {
             headers: {
