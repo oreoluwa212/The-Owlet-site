@@ -55,7 +55,7 @@ function BoardingNavMenu() {
 
       {isOpen && (
         <div
-          className={`fixed top-0 left-0 h-screen bg-white w-full text-white font-bold lgss:hidden flex flex-col pt-16 transform transition-transform duration-300 ${
+          className={`fixed z-10 top-0 left-0 h-screen bg-white w-full text-white font-bold lgss:hidden flex flex-col pt-16 transform transition-transform duration-300 ${
             isOpen ? "translate-x-0 " : "-translate-x-full"
           }`}
         >

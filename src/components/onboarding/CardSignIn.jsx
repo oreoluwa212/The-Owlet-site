@@ -1,16 +1,19 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
 import SubmitBtn from "../buttons/SubmitBtn";
 import WhiteBtn from "../buttons/WhiteBtn";
 import FormInput from "../input/FormInput";
 
-function CardSignIn({ h1, p }) {
+function SignInPage({ h1, p }) {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,16 +32,34 @@ function CardSignIn({ h1, p }) {
     }
     if (!formData.password) {
       newErrors.password = "Password is required";
+    } else if (formData.password.length < 8) {
+      newErrors.password = "Password must be at least 8 characters";
     }
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length === 0) {
-      window.location.href = "https://the-owlet.vercel.app/";
-      // window.location.href = "http://localhost:5174/";
+      try {
+        const response = await axios.post(
+          "https://theowletapp.com/server/api/v1/auth/login",
+          formData,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        console.log(response.data);
+        toast.success("Login successful!");
+        navigate("/dashboard"); // Assuming there's a dashboard route
+      } catch (error) {
+        console.log(error);
+        setErrors({ api: "Login failed. Please try again." });
+        toast.error("Login failed. Please try again.");
+      }
     } else {
       setErrors(validationErrors);
     }
@@ -67,23 +88,16 @@ function CardSignIn({ h1, p }) {
         onChange={handleChange}
         error={errors.password}
         errorMessage={errors.password}
-        defaultMessage="Must be at least 8 characters"
       />
-      <div className="w-full flex justify-between items-center m-2 text-sm">
-        <div className="flex justify-center items-center gap-2">
-          <input type="checkbox" />
-          <p className="text-left text-secondary pt-1">Remember for 30 days</p>
-        </div>
-        <div className="text-primary font-semibold">
-          <a href="#">Forgot password</a>
-        </div>
-      </div>
+
+      {errors.api && <p className="text-red-500">{errors.api}</p>}
+
       <div className="w-full font-semibold">
-        <SubmitBtn onClick={handleSubmit} buttonText="Sign in" />
+        <SubmitBtn onClick={handleSubmit} buttonText="Sign In" />
         <WhiteBtn buttonText="Sign in with Google" />
-        <div className="pt-5 flex justify-center items-center">
+        <div className="pt-3 flex justify-center items-center">
           <p className="font-normal">
-            Don&apos;t have an account?
+            Don't have an account?
             <span className="text-primary font-bold pl-2">
               <Link to="/signup">Sign up</Link>
             </span>
@@ -94,4 +108,4 @@ function CardSignIn({ h1, p }) {
   );
 }
 
-export default CardSignIn;
+export default SignInPage;

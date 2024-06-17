@@ -20,9 +20,9 @@ function FormInput({
   };
 
   return (
-    <div className="w-full mt-3 relative">
+    <div className="w-full mt-3 relative -z-1">
       <input
-        className={`border w-full p-2 outline-none rounded-[8px] ${
+        className={`-z-1 border w-full p-2 outline-none rounded-[8px] ${
           error ? "border-red-500" : ""
         }`}
         type={type === "password" && showPassword ? "text" : type}

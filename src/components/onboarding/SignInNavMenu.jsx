@@ -4,9 +4,9 @@ import { logo } from "../../assets";
 import { FaBars, FaTimes } from "react-icons/fa";
 import BoadingNavButton from "../buttons/BoadingNavButton";
 
+
 function SignInNavMenu() {
   const [isOpen, setIsOpen] = useState(false);
-
   return (
     <div className="bg-white shadow-sm px-[5%] py-3">
       <div className="lgss:flex lgss:flex-row hidden justify-between items-center relative font-semibold">
@@ -43,19 +43,19 @@ function SignInNavMenu() {
         {isOpen ? (
           <FaTimes
             onClick={() => setIsOpen(false)}
-            className=" cursor-pointer text-secondary z-20 text-[28px]"
+            className="cursor-pointer text-secondary z-20 text-[28px]"
           />
         ) : (
           <FaBars
             onClick={() => setIsOpen(true)}
-            className=" cursor-pointer text-secondary z-20 text-[28px]"
+            className="cursor-pointer text-secondary z-20 text-[28px]"
           />
         )}
       </div>
 
       {isOpen && (
         <div
-          className={`fixed top-0 left-0 h-screen bg-white w-full text-white font-bold lgss:hidden flex flex-col pt-16 transform transition-transform duration-300 ${
+          className={`fixed z-10 top-0 left-0 h-screen bg-white w-full text-white font-bold lgss:hidden flex flex-col pt-16 transform transition-transform duration-300 ${
             isOpen ? "translate-x-0 " : "-translate-x-full"
           }`}
         >

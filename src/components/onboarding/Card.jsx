@@ -1,18 +1,22 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
 import SubmitBtn from "../buttons/SubmitBtn";
 import WhiteBtn from "../buttons/WhiteBtn";
 import FormInput from "../input/FormInput";
 
-function Card({ h1, p }) {
+function SignUpPage({ h1, p }) {
   const [formData, setFormData] = useState({
-    fname: "",
-    lname: "",
+    first_name: "",
+    last_name: "",
     email: "",
+    country: "",
     password: "",
   });
 
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,13 +28,14 @@ function Card({ h1, p }) {
 
   const validate = () => {
     const newErrors = {};
-    if (!formData.fname) newErrors.fname = "First name is required";
-    if (!formData.lname) newErrors.lname = "Last name is required";
+    if (!formData.first_name) newErrors.first_name = "First name is required";
+    if (!formData.last_name) newErrors.last_name = "Last name is required";
     if (!formData.email) {
       newErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "Email is invalid";
     }
+    if (!formData.country) newErrors.country = "Country is required";
     if (!formData.password) {
       newErrors.password = "Password is required";
     } else if (formData.password.length < 8) {
@@ -39,12 +44,28 @@ function Card({ h1, p }) {
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length === 0) {
-      // window.location.href = "http://localhost:5174/";
-      window.location.href = "https://the-owlet.vercel.app/";
+      try {
+        const response = await axios.post(
+          "https://theowletapp.com/server/api/v1/auth/register",
+          formData,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        console.log(response.data)
+        toast.success("Registration successful!");
+        navigate("/signin");
+      } catch (error) {
+        console.log(error);
+        setErrors({ api: "Registration failed. Please try again." });
+        toast.error("Registration failed. Please try again.");
+      }
     } else {
       setErrors(validationErrors);
     }
@@ -56,23 +77,23 @@ function Card({ h1, p }) {
       <p className="text-[1rem]">{p}</p>
       <FormInput
         type="text"
-        name="fname"
-        id="fname"
+        name="first_name"
+        id="first_name"
         placeholder="Enter your first name"
-        value={formData.fname}
+        value={formData.first_name}
         onChange={handleChange}
-        error={errors.fname}
-        errorMessage={errors.fname}
+        error={errors.first_name}
+        errorMessage={errors.first_name}
       />
       <FormInput
         type="text"
-        name="lname"
-        id="lname"
+        name="last_name"
+        id="last_name"
         placeholder="Enter your last name"
-        value={formData.lname}
+        value={formData.last_name}
         onChange={handleChange}
-        error={errors.lname}
-        errorMessage={errors.lname}
+        error={errors.last_name}
+        errorMessage={errors.last_name}
       />
       <FormInput
         type="text"
@@ -85,6 +106,16 @@ function Card({ h1, p }) {
         errorMessage={errors.email}
       />
       <FormInput
+        type="text"
+        name="countryCode"
+        id="country"
+        placeholder="Enter your country code e.g 234"
+        value={formData.country}
+        onChange={handleChange}
+        error={errors.country}
+        errorMessage={errors.country}
+      />
+      <FormInput
         type="password"
         name="password"
         id="password"
@@ -95,6 +126,9 @@ function Card({ h1, p }) {
         errorMessage={errors.password}
         defaultMessage="Must be at least 8 characters"
       />
+
+      {errors.api && <p className="text-red-500">{errors.api}</p>}
+
       <div className="w-full font-semibold">
         <SubmitBtn onClick={handleSubmit} buttonText="Get Started" />
         <WhiteBtn buttonText="Sign up with Google" />
@@ -111,4 +145,4 @@ function Card({ h1, p }) {
   );
 }
 
-export default Card;
+export default SignUpPage;
