@@ -5,7 +5,7 @@ import SubmitBtn from "../buttons/SubmitBtn";
 import WhiteBtn from "../buttons/WhiteBtn";
 import FormInput from "../input/FormInput";
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; 
+import "react-toastify/dist/ReactToastify.css";
 
 function SignUpPage({ h1, p }) {
   const [formData, setFormData] = useState({
