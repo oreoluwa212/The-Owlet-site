@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -15,7 +15,6 @@ function CardSignIn({ h1, p }) {
 
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -38,40 +37,44 @@ function CardSignIn({ h1, p }) {
     return newErrors;
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length === 0) {
-      setLoading(true);
-      try {
-        const response = await axios.post(
-          "https://theowletapp.com/server/api/v1/users/auth/login",
-          formData,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        console.log(response)
-        toast.success("Login successful!");
-      window.location.href = "http://localhost:5174";
-      // window.location.href = "https://the-owlet.vercel.app/";
-      } catch (error) {
-        console.error(error);
-        setErrors({
-          api: "Login failed. Please check your credentials and try again.",
-        });
-        toast.error(
-          "Login failed. Please check your credentials and try again."
-        );
-      } finally {
-        setLoading(false);
-      }
-    } else {
-      setErrors(validationErrors);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const validationErrors = validate();
+  if (Object.keys(validationErrors).length === 0) {
+    setLoading(true);
+    try {
+      const response = await axios.post(
+        "https://theowletapp.com/server/api/v1/users/auth/login",
+        formData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log("Response:", response);
+      const data = response.data;
+      console.log("Data:", data);
+      localStorage.setItem("user", JSON.stringify(data));
+      toast.success("Login successful!");
+      setTimeout(() => {
+        // window.location.href = "http://localhost:5174";
+        window.location.href = "https://the-owlet.vercel.app/";
+      }, 1000);
+    } catch (error) {
+      console.error("Error:", error);
+      setErrors({
+        api: "Login failed. Please check your credentials and try again.",
+      });
+      toast.error("Login failed. Please check your credentials and try again.");
+    } finally {
+      setLoading(false);
     }
-  };
+  } else {
+    setErrors(validationErrors);
+  }
+};
+
 
   return (
     <div className="lgss:bg-white lgss:border w-[90%] md:w-[50%] lgss:w-[35%] rounded-[12px] flex flex-col justify-center items-center px-8 py-5">
