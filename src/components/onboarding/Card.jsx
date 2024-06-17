@@ -61,11 +61,13 @@ function SignUpPage({ h1, p }) {
             },
           }
         );
-        console.log(response.data);
+        console.log("Response:", response.data);
+
         toast.success("Registration successful!");
-        navigate("/signin");
+
+        navigate(`/signin`);
       } catch (error) {
-        console.error(error);
+        console.error("Error:", error);
         setErrors({ api: "Registration failed. Please try again." });
         toast.error("Registration failed. Please try again.");
       } finally {
