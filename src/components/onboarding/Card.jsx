@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { toast } from "react-toastify";
 import SubmitBtn from "../buttons/SubmitBtn";
 import WhiteBtn from "../buttons/WhiteBtn";
 import FormInput from "../input/FormInput";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; 
 
 function SignUpPage({ h1, p }) {
   const [formData, setFormData] = useState({
@@ -16,6 +17,7 @@ function SignUpPage({ h1, p }) {
   });
 
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -48,6 +50,7 @@ function SignUpPage({ h1, p }) {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length === 0) {
+      setLoading(true);
       try {
         const response = await axios.post(
           "https://theowletapp.com/server/api/v1/auth/register",
@@ -58,13 +61,15 @@ function SignUpPage({ h1, p }) {
             },
           }
         );
-        console.log(response.data)
+        console.log(response.data);
         toast.success("Registration successful!");
         navigate("/signin");
       } catch (error) {
-        console.log(error);
+        console.error(error);
         setErrors({ api: "Registration failed. Please try again." });
         toast.error("Registration failed. Please try again.");
+      } finally {
+        setLoading(false);
       }
     } else {
       setErrors(validationErrors);
@@ -73,6 +78,7 @@ function SignUpPage({ h1, p }) {
 
   return (
     <div className="lgss:bg-white lgss:border w-[90%] md:w-[50%] lgss:w-[35%] rounded-[12px] flex flex-col justify-center items-center px-8 py-5">
+      <ToastContainer />
       <h1 className="font-semibold text-[1.2rem]">{h1}</h1>
       <p className="text-[1rem]">{p}</p>
       <FormInput
@@ -107,7 +113,7 @@ function SignUpPage({ h1, p }) {
       />
       <FormInput
         type="text"
-        name="countryCode"
+        name="country"
         id="country"
         placeholder="Enter your country code e.g 234"
         value={formData.country}
@@ -130,7 +136,11 @@ function SignUpPage({ h1, p }) {
       {errors.api && <p className="text-red-500">{errors.api}</p>}
 
       <div className="w-full font-semibold">
-        <SubmitBtn onClick={handleSubmit} buttonText="Get Started" />
+        <SubmitBtn
+          onClick={handleSubmit}
+          buttonText="Get Started"
+          loading={loading}
+        />
         <WhiteBtn buttonText="Sign up with Google" />
         <div className="pt-3 flex justify-center items-center">
           <p className="font-normal">

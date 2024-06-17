@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import SubmitBtn from "../buttons/SubmitBtn";
 import WhiteBtn from "../buttons/WhiteBtn";
 import FormInput from "../input/FormInput";
 
-function SignInPage({ h1, p }) {
+function CardSignIn({ h1, p }) {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -32,8 +34,6 @@ function SignInPage({ h1, p }) {
     }
     if (!formData.password) {
       newErrors.password = "Password is required";
-    } else if (formData.password.length < 8) {
-      newErrors.password = "Password must be at least 8 characters";
     }
     return newErrors;
   };
@@ -42,6 +42,7 @@ function SignInPage({ h1, p }) {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length === 0) {
+      setLoading(true);
       try {
         const response = await axios.post(
           "https://theowletapp.com/server/api/v1/auth/login",
@@ -52,13 +53,18 @@ function SignInPage({ h1, p }) {
             },
           }
         );
-        console.log(response.data);
         toast.success("Login successful!");
-        navigate("/dashboard"); // Assuming there's a dashboard route
+        navigate("/");
       } catch (error) {
-        console.log(error);
-        setErrors({ api: "Login failed. Please try again." });
-        toast.error("Login failed. Please try again.");
+        console.error(error);
+        setErrors({
+          api: "Login failed. Please check your credentials and try again.",
+        });
+        toast.error(
+          "Login failed. Please check your credentials and try again."
+        );
+      } finally {
+        setLoading(false);
       }
     } else {
       setErrors(validationErrors);
@@ -67,6 +73,7 @@ function SignInPage({ h1, p }) {
 
   return (
     <div className="lgss:bg-white lgss:border w-[90%] md:w-[50%] lgss:w-[35%] rounded-[12px] flex flex-col justify-center items-center px-8 py-5">
+      <ToastContainer />
       <h1 className="font-semibold text-[1.2rem]">{h1}</h1>
       <p className="text-[1rem]">{p}</p>
       <FormInput
@@ -88,16 +95,18 @@ function SignInPage({ h1, p }) {
         onChange={handleChange}
         error={errors.password}
         errorMessage={errors.password}
+        defaultMessage="Must be at least 8 characters"
       />
-
-      {errors.api && <p className="text-red-500">{errors.api}</p>}
-
       <div className="w-full font-semibold">
-        <SubmitBtn onClick={handleSubmit} buttonText="Sign In" />
+        <SubmitBtn
+          onClick={handleSubmit}
+          buttonText="Sign in"
+          loading={loading}
+        />
         <WhiteBtn buttonText="Sign in with Google" />
-        <div className="pt-3 flex justify-center items-center">
+        <div className="pt-5 flex justify-center items-center">
           <p className="font-normal">
-            Don't have an account?
+            Don&apos;t have an account?
             <span className="text-primary font-bold pl-2">
               <Link to="/signup">Sign up</Link>
             </span>
@@ -108,4 +117,4 @@ function SignInPage({ h1, p }) {
   );
 }
 
-export default SignInPage;
+export default CardSignIn;
