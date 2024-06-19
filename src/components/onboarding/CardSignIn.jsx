@@ -37,57 +37,6 @@ function CardSignIn({ h1, p }) {
     return newErrors;
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const validationErrors = validate();
-  //   if (Object.keys(validationErrors).length === 0) {
-  //     setLoading(true);
-  //     try {
-  //       const response = await axios.post(
-  //         "https://theowletapp.com/server/api/v1/users/auth/login",
-  //         formData,
-  //         {
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //           },
-  //         }
-  //       );
-  //       console.log("Response:", response);
-  //       const data = response.data;
-  //       console.log("Data:", data);
-  //       toast.success(response.message);
-
-  //       // Construct query parameters with user details
-  //       // const queryParams = new URLSearchParams({
-  //       //   firstName: data.user.firstname,
-  //       //   lastName: data.user.lastname,
-  //       //   email: data.user.email,
-  //       // }).toString();
-
-  //       // Redirecting with query parameters
-  //       navigate(
-  //         `http://localhost:5174?firstname=${data.user.first_name}&lastname=${data.user.last_name}&email=${data.user.email}`
-  //       );
-  //       setTimeout(() => {
-  //         // window.location.href = `http://localhost:5174?${queryParams}`;
-  //         // window.location.href = `https://the-owlet.vercel.app?${queryParams}`;
-  //       }, 1000);
-  //     } catch (error) {
-  //       console.error("Error:", error);
-  //       setErrors({
-  //         api: "Login failed. Please check your credentials and try again.",
-  //       });
-  //       toast.error(
-  //         "Login failed. Please check your credentials and try again."
-  //       );
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   } else {
-  //     setErrors(validationErrors);
-  //   }
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
@@ -103,28 +52,43 @@ function CardSignIn({ h1, p }) {
             },
           }
         );
+
         const data = response.data;
-        console.log("Data:", data);
+        if (response.status === 200 && data.success) {
+          toast.success("Login successful!");
 
-        toast.success(response.message);
+          // Construct query parameters with user details
+          const queryParams = new URLSearchParams({
+            firstName: data.data.user.firstname,
+            lastName: data.data.user.lastname,
+            email: data.data.user.email,
+          }).toString();
 
-        // Construct query parameters with user details
-        const queryParams = new URLSearchParams({
-          firstName: data.data.user.firstname,
-          lastName: data.data.user.lastname,
-          email: data.data.user.email,
-        }).toString();
-
-        // window.location.assign(`http://localhost:5174?${queryParams}`);
-        window.location.assign(`https://the-owlet.vercel.app?${queryParams}`);
+          window.location.assign(`https://the-owlet.vercel.app?${queryParams}`);
+        } else {
+          toast.error(
+            data.message ||
+              "Login failed. Please check your credentials and try again."
+          );
+          setErrors({
+            api:
+              data.message ||
+              "Login failed. Please check your credentials and try again.",
+          });
+        }
       } catch (error) {
         console.error("Error:", error);
-        setErrors({
-          api: "Login failed. Please check your credentials and try again.",
-        });
-        toast.error(
-          "Login failed. Please check your credentials and try again."
-        );
+        if (error.response && error.response.status === 401) {
+          setErrors({ api: "Invalid credentials. Please try again." });
+          toast.error("Invalid credentials. Please try again.");
+        } else {
+          setErrors({
+            api: "Login failed. Please check your credentials and try again.",
+          });
+          toast.error(
+            "Login failed. Please check your credentials and try again."
+          );
+        }
       } finally {
         setLoading(false);
       }
@@ -132,7 +96,7 @@ function CardSignIn({ h1, p }) {
       setErrors(validationErrors);
     }
   };
-
+  
   return (
     <div className="lgss:bg-white lgss:border w-[90%] md:w-[50%] lgss:w-[30%] rounded-[12px] flex flex-col justify-center items-center px-8 py-5">
       <ToastContainer />

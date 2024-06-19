@@ -64,12 +64,14 @@ function SignUpPage({ h1, p }) {
         console.log("Response:", response.data);
 
         toast.success("Registration successful!");
+        console.log("Toast success should be shown");
 
         navigate(`/signin`);
       } catch (error) {
         console.error("Error:", error);
         setErrors({ api: "Registration failed. Please try again." });
         toast.error("Registration failed. Please try again.");
+        console.log("Toast error should be shown");
       } finally {
         setLoading(false);
       }
