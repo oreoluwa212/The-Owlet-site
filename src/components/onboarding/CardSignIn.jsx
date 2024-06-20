@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import SubmitBtn from "../buttons/SubmitBtn";
 import WhiteBtn from "../buttons/WhiteBtn";
 import FormInput from "../input/FormInput";
-import Cookies from "js-cookie";
+import { useDispatch, useSelector } from "react-redux";
+import { loggedInUser } from "../../store/UserSlice";
 
 function CardSignIn({ h1, p }) {
   const [formData, setFormData] = useState({
@@ -14,8 +14,10 @@ function CardSignIn({ h1, p }) {
     password: "",
   });
 
+  const { loading, error, user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
   const [errors, setErrors] = useState({});
-  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -42,66 +44,26 @@ function CardSignIn({ h1, p }) {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length === 0) {
-      setLoading(true);
-      try {
-        const response = await axios.post(
-          "https://theowletapp.com/server/api/v1/users/auth/login",
-          formData,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
-        const data = response.data;
-        if (response.status === 200 && data.success) {
-          toast.success(data.message || "Login successful!");
-
-          const userData = {
-            firstName: data.data.user.firstname,
-            lastName: data.data.user.lastname,
-            email: data.data.user.email,
-          };
-          Cookies.set("userData", JSON.stringify(userData), {
-            expires: 7,
-            path: "/",
-          });
-          setTimeout(() => {
-            // window.location.assign(`http://localhost:5174`);
-            window.location.assign(`https://the-owlet.vercel.app`);
-          }, 2000);
-        } else {
-          toast.error(
-            data.message ||
-              "Login failed. Please check your credentials and try again."
-          );
-          setErrors({
-            api:
-              data.message ||
-              "Login failed. Please check your credentials and try again.",
-          });
-        }
-      } catch (error) {
-        console.error("Error:", error);
-        if (error.response && error.response.status === 401) {
-          setErrors({ api: "Invalid credentials. Please try again." });
-          toast.error("Invalid credentials. Please try again.");
-        } else {
-          setErrors({
-            api: "Login failed. Please check your credentials and try again.",
-          });
-          toast.error(
-            "Login failed. Please check your credentials and try again."
-          );
-        }
-      } finally {
-        setLoading(false);
-      }
+      dispatch(loggedInUser(formData));
     } else {
       setErrors(validationErrors);
     }
   };
+
+  useEffect(() => {
+    if (user) {
+      toast.success("Login successful!");
+      setTimeout(() => {
+        let auth = localStorage.getItem("token");
+        localStorage.removeItem("token");
+        // window.location.assign(`http://localhost:5174/?auth=${auth}`);
+        window.location.assign(`https://the-owlet.vercel.app/?auth=${auth}`);
+      }, 2000);
+    }
+    if (error) {
+      toast.error(error);
+    }
+  }, [user, error]);
 
   return (
     <div className="lgss:bg-white lgss:border w-[90%] md:w-[50%] lgss:w-[30%] rounded-[12px] flex flex-col justify-center items-center px-8 py-5">
@@ -130,6 +92,7 @@ function CardSignIn({ h1, p }) {
         errorMessage={errors.password}
         defaultMessage="Must be at least 8 characters"
       />
+      {error && <p className="text-red-500">{error}</p>}
       <div className="w-full font-semibold">
         <SubmitBtn
           onClick={handleSubmit}
