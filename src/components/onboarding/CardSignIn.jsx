@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import SubmitBtn from "../buttons/SubmitBtn";
 import WhiteBtn from "../buttons/WhiteBtn";
 import FormInput from "../input/FormInput";
+import Cookies from "js-cookie";
 
 function CardSignIn({ h1, p }) {
   const [formData, setFormData] = useState({
@@ -55,15 +56,21 @@ function CardSignIn({ h1, p }) {
 
         const data = response.data;
         if (response.status === 200 && data.success) {
-          toast.success("Login successful!");
+          toast.success(data.message || "Login successful!");
 
-          const queryParams = new URLSearchParams({
+          const userData = {
             firstName: data.data.user.firstname,
             lastName: data.data.user.lastname,
             email: data.data.user.email,
-          }).toString();
-
-          window.location.assign(`https://the-owlet.vercel.app?${queryParams}`);
+          };
+          Cookies.set("userData", JSON.stringify(userData), {
+            expires: 7,
+            path: "/",
+          });
+          setTimeout(() => {
+            // window.location.assign(`http://localhost:5174`);
+            window.location.assign(`https://the-owlet.vercel.app?${queryParams}`);
+          }, 2000);
         } else {
           toast.error(
             data.message ||
