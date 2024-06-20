@@ -57,7 +57,6 @@ function CardSignIn({ h1, p }) {
         if (response.status === 200 && data.success) {
           toast.success("Login successful!");
 
-          // Construct query parameters with user details
           const queryParams = new URLSearchParams({
             firstName: data.data.user.firstname,
             lastName: data.data.user.lastname,
@@ -96,7 +95,7 @@ function CardSignIn({ h1, p }) {
       setErrors(validationErrors);
     }
   };
-  
+
   return (
     <div className="lgss:bg-white lgss:border w-[90%] md:w-[50%] lgss:w-[30%] rounded-[12px] flex flex-col justify-center items-center px-8 py-5">
       <ToastContainer />
@@ -124,7 +123,6 @@ function CardSignIn({ h1, p }) {
         errorMessage={errors.password}
         defaultMessage="Must be at least 8 characters"
       />
-      {errors.api && <p className="text-red-500">{errors.api}</p>}
       <div className="w-full font-semibold">
         <SubmitBtn
           onClick={handleSubmit}
