@@ -69,7 +69,7 @@ function CardSignIn({ h1, p }) {
           });
           setTimeout(() => {
             // window.location.assign(`http://localhost:5174`);
-            window.location.assign(`https://the-owlet.vercel.app?${queryParams}`);
+            window.location.assign(`https://the-owlet.vercel.app`);
           }, 2000);
         } else {
           toast.error(
