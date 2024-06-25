@@ -70,7 +70,6 @@ function CardSignIn({ h1, p }) {
       <ToastContainer />
       <h1 className="font-semibold text-[1.2rem]">{h1}</h1>
       <p className="text-[1rem]">{p}</p>
-
       <FormInput
         type="text"
         name="email"
@@ -92,7 +91,6 @@ function CardSignIn({ h1, p }) {
         errorMessage={errors.password}
         defaultMessage="Must be at least 8 characters"
       />
-      {error && <p className="text-red-500">{error}</p>}
       <div className="w-full font-semibold">
         <SubmitBtn
           onClick={handleSubmit}

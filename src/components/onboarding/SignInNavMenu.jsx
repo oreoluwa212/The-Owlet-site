@@ -16,7 +16,9 @@ function SignInNavMenu() {
           </Link>
         </div>
         <ul className="lgss:flex gap-7 justify-between w-[50%] font-semibold text-[16px] text-secondary">
-          <li>Services</li>
+          <Link to={"/services"}>
+            <li>Services</li>
+          </Link>
           <Link to={"/blog"}>
             <li>Blog</li>
           </Link>
@@ -61,7 +63,9 @@ function SignInNavMenu() {
         >
           <div className="flex flex-col justify-center items-center z-100">
             <ul className="flex flex-col gap-8 pb-8 justify-center text-secondary font-semibold text-[20px]">
-              <li>Services</li>
+              <Link to={"/services"}>
+                <li>Services</li>
+              </Link>
               <Link to={"/blog"}>
                 <li>Blog</li>
               </Link>

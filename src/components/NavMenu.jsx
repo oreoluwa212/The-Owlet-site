@@ -27,7 +27,9 @@ const NavMenu = () => {
           </Link>
         </div>
         <ul className="lgss:flex gap-7 justify-between w-[50%] font-semibold text-[16px] text-secondary">
-          <li>Services</li>
+          <Link to={"/services"}>
+            <li>Services</li>
+          </Link>
           <Link to={"/blog"}>
             <li>Blog</li>
           </Link>
@@ -86,7 +88,9 @@ const NavMenu = () => {
         >
           <div className="bg-white flex flex-col justify-center items-center w-full h-screen  z-1000">
             <ul className="flex flex-col gap-8 pb-8 justify-center text-secondary font-semibold text-[20px]">
-              <li>Services</li>
+              <Link to={"/services"}>
+                <li>Services</li>
+              </Link>
               <Link to={"/blog"}>
                 <li>Blog</li>
               </Link>
