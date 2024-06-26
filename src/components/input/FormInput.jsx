@@ -20,7 +20,7 @@ function FormInput({
   };
 
   return (
-    <div className="w-full mt-3 relative -z-1">
+    <div className="w-full relative -z-1">
       <input
         className={`-z-1 border w-full p-2 outline-none rounded-[8px] ${
           error ? "border-red-500" : ""

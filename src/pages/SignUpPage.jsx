@@ -95,7 +95,7 @@ const SignUpPage = () => {
     <div className="bg-[rgb(249,250,251)] overflow-hidden h-screen">
       <ToastContainer />
       <BoardingNavMenu />
-      <div className="lgss:bg-white lgss:border w-[90%] md:w-[50%] lgss:w-[35%] rounded-[12px] flex flex-col mx-auto mt-10 justify-center items-center px-8 py-5">
+      <div className="lgss:bg-white lgss:border w-[90%] md:w-[50%] lgss:w-[30%] rounded-[12px] flex flex-col gap-3 mx-auto mt-10 justify-center items-center px-8 py-5">
         <h1 className="font-semibold text-[1.2rem]">Create an account</h1>
         <p className="text-[1rem]">Sign up in less than 2 minutes.</p>
         <FormInput

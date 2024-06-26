@@ -61,12 +61,13 @@ function CardSignIn({ h1, p }) {
       }, 2000);
     }
     if (error) {
-      toast.error(error);
+      toast.error("Invalid credentials");
+      console.log(error);
     }
   }, [user, error]);
 
   return (
-    <div className="lgss:bg-white lgss:border w-[90%] md:w-[50%] lgss:w-[30%] rounded-[12px] flex flex-col justify-center items-center px-8 py-5">
+    <div className="lgss:bg-white lgss:border w-[90%] md:w-[50%] lgss:w-[30%] rounded-[12px] flex flex-col gap-3 justify-center items-center px-8 py-5">
       <ToastContainer />
       <h1 className="font-semibold text-[1.2rem]">{h1}</h1>
       <p className="text-[1rem]">{p}</p>

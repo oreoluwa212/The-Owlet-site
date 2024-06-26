@@ -80,10 +80,8 @@ const columns = [
 ];
 
 const ServicesPage = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="max-w-full flex flex-col lgss:flex-row bg-bg h-screen">
+    <div className="max-w-full flex flex-col lgss:flex-row bg-white h-screen">
       <div className="flex flex-col w-full py-5 z-0">
         <div className="px-[5%]">
         <NavMenu />

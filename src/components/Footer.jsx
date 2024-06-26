@@ -19,7 +19,7 @@ function Footer() {
           />
         </div>
         <div className="lgss:w-1/3 flex flex-col gap-2">
-          <div className="flex flex-col lgss:flex-row  justify-center w-full items-center lgss:gap-6">
+          <div className="flex flex-col lgss:flex-row  justify-between w-full items-center lgss:gap-6">
             <div className="w-full lgss:w-2/3">
               <FormInput placeholder={"Enter your email"} />
             </div>
