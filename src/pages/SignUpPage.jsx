@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
@@ -7,6 +7,7 @@ import BoardingNavMenu from "../components/onboarding/BoardingNavMenu";
 import FormInput from "../components/input/FormInput";
 import SubmitBtn from "../components/buttons/SubmitBtn";
 import WhiteBtn from "../components/buttons/WhiteBtn";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const SignUpPage = () => {
   const [formData, setFormData] = useState({
@@ -17,16 +18,51 @@ const SignUpPage = () => {
     password: "",
   });
 
+  const [countries, setCountries] = useState([]);
+  const [loadingCountries, setLoadingCountries] = useState(true);
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const fetchCountries = async () => {
+      try {
+        setLoadingCountries(true);
+        const response = await fetch(
+          "https://theowletapp.com/server/api/v1/list/country"
+        );
+        const data = await response.json();
+        if (data.success) {
+          setCountries(data.data);
+        } else {
+          toast.error("Failed to fetch countries");
+        }
+      } catch (error) {
+        toast.error("An error occurred while fetching countries");
+      } finally {
+        setLoadingCountries(false);
+      }
+    };
+
+    fetchCountries();
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    if (name === "country") {
+      const selectedCountry = countries.find(
+        (country) => country.name === value
+      );
+      setFormData({
+        ...formData,
+        country: selectedCountry ? selectedCountry.dial_code : "",
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    }
   };
 
   const validate = () => {
@@ -128,16 +164,32 @@ const SignUpPage = () => {
           error={errors.email}
           errorMessage={errors.email}
         />
-        <FormInput
-          type="text"
-          name="country"
-          id="country"
-          placeholder="Enter your country code e.g 234"
-          value={formData.country}
-          onChange={handleChange}
-          error={errors.country}
-          errorMessage={errors.country}
-        />
+        <div className="w-full font-semibold">
+          {loadingCountries ? (
+            <div className="flex justify-center">
+              <ClipLoader
+                size={35}
+                color={"#123abc"}
+                loading={loadingCountries}
+              />
+            </div>
+          ) : (
+            <select
+              name="country"
+              id="country"
+              value={formData.country}
+              onChange={handleChange}
+              className="block w-full p-2 font-normal border border-gray-300 rounded-md outline-none placeholder:"
+            >
+              <option value="">Select a country</option>
+              {countries.map((country) => (
+                <option key={country.id} value={country.name}>
+                  {country.name}
+                </option>
+              ))}
+            </select>
+          )}
+        </div>
         <FormInput
           type="password"
           name="password"
