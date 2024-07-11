@@ -33,7 +33,15 @@ const SignUpPage = () => {
         );
         const data = await response.json();
         if (data.success) {
-          setCountries(data.data);
+          const countriesList = data.data;
+          const nigeriaIndex = countriesList.findIndex(
+            (country) => country.name === "Nigeria"
+          );
+          if (nigeriaIndex > -1) {
+            const nigeria = countriesList.splice(nigeriaIndex, 1)[0];
+            countriesList.unshift(nigeria);
+          }
+          setCountries(countriesList);
         } else {
           toast.error("Failed to fetch countries");
         }
@@ -50,12 +58,9 @@ const SignUpPage = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === "country") {
-      const selectedCountry = countries.find(
-        (country) => country.name === value
-      );
       setFormData({
         ...formData,
-        country: selectedCountry ? selectedCountry.dial_code : "",
+        country: value,
       });
     } else {
       setFormData({
@@ -183,7 +188,7 @@ const SignUpPage = () => {
             >
               <option value="">Select a country</option>
               {countries.map((country) => (
-                <option key={country.id} value={country.name}>
+                <option key={country.id} value={country.id}>
                   {country.name}
                 </option>
               ))}

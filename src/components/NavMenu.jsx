@@ -33,7 +33,9 @@ const NavMenu = () => {
           <Link to={"/blog"}>
             <li>Blog</li>
           </Link>
-          <li>API</li>
+          <Link to={"/api"}>
+            <li>API</li>
+          </Link>
           <Link to={"/instagram"}>
             <li>Buy Instagram Followers</li>
           </Link>
@@ -94,7 +96,9 @@ const NavMenu = () => {
               <Link to={"/blog"}>
                 <li>Blog</li>
               </Link>
-              <li>API</li>
+              <Link to={"/api"}>
+                <li>API</li>
+              </Link>
               <Link to={"/instagram"}>
                 <li>Buy Instagram Followers</li>
               </Link>
